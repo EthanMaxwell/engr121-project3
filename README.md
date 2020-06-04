@@ -1,8 +1,8 @@
 ENGR101 Project 3 Plan
 
-**Team Name: Group 2 **
+**Team Name: Group 2**
 
-**Team Members &amp; contact info: **
+**Team Members &amp; contact info:**
 
 Suveesthiga Sathiyaseelan
 
@@ -12,11 +12,11 @@ Jaedan Ringrose Perez
 
 Ethan Maxwell
 
-**Communication tool: **
+**Communication tool:**
 
 Only slow old email currently, we will certainly need more! Any ideas?
 
-**Roles: **
+**Roles:**
 
 X - Project Manager (organising team meetings, reporting regularly on progress)
 
