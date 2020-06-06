@@ -16,6 +16,7 @@ Ethan Maxwell
 
 - Facebook
 - Email
+- Zoom
 
 # Roles:
 
