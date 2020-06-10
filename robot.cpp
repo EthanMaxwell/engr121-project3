@@ -44,10 +44,10 @@ int main(){
 	if (initClientRobot() !=0){
 		std::cout<<" Error initializing robot"<<std::endl;
 	}
-	double vLeft = 10.0;
-	double vRight = 10.0;
-	double vMin = 2.5;
-	double vMax = 10.0;
+	double vLeft = 10.0;//left wheel speed
+	double vRight = 10.0;//right wheel speed
+	double vMin = 2.5;//min wheel speed
+	double vMax = 10.0;//max wheel speed
     takePicture();
     SavePPMFile("i0.ppm",cameraView);
     while(1){
@@ -70,7 +70,6 @@ int main(){
 		std::cout << "Height: " << cameraView.height <<", " << "Width: " << cameraView.height << std::endl;
 		setMotors(vLeft,vRight);   
 		std::cout<<" vLeft="<<vLeft<<"  vRight="<<vRight<<std::endl;
-		usleep(10);
   } //while
 
 } // main
