@@ -9,7 +9,7 @@
 int whiteDir(int* imageStrip){
 	int whiteStart = -1;//stores the starting collumn of the white line pixel block
 	int whiteEnd = -1;//stores the starting collumn of the white line pixel block
-	for (int i = 0; i < cameraView.width; i++){
+	for (int i = 0; i < cameraView.width; i++){//cheak through array for white pixels
 		if (imageStrip[i] == 1 && i != cameraView.width - 1){
 			whiteStart = (whiteStart == -1) ? i : whiteStart;//first time a white pixel is found it must be the start of line			
 		}
