@@ -6,15 +6,15 @@
  * -1 for not found, 0 for left, 1 for right, 2 for already centered
 */
 int whiteDir(int* imageStrip){
-	int whiteStart = -1;//stores the starting collumn of the white line pixel block
-	int whiteEnd = -1;//stores the starting collumn of the white line pixel block
+	int whiteStart = -1;//stores the starting column of the white line pixel block
+	int whiteEnd = -1;//stores the starting column of the white line pixel block
 	for (int i = 0; i < cameraView.width; i++){//cheak through array for white pixels
 		if (imageStrip[i] == 1 && i != cameraView.width - 1){
 			whiteStart = (whiteStart == -1) ? i : whiteStart;//first time a white pixel is found it must be the start of line			
 		}
 		else if (whiteStart != -1){//end of the line has been found
 			whiteEnd = i-1;
-			double lineCol = (whiteStart + whiteEnd) / 2.0;
+			double lineCol = (whiteStart + whiteEnd) / 2.0;//column number of the line
 			std::cout<<lineCol<<" out of "<<cameraView.width;
 			if (lineCol > (cameraView.width / 2.0 - 10) && lineCol < (cameraView.width / 2.0 + 10)){
 				return 2;//already on course
@@ -43,14 +43,15 @@ int* getImageStrip(ImagePPM image){
 		int r = (int) get_pixel(image, row, i, 0);
 		int g = (int) get_pixel(image, row, i, 1);
 		int b = (int) get_pixel(image, row, i, 2);
-		if (r >= 255 && g >= 255 && b >= 255){//is the pixel white?
-			strip[i] = 1;//show pixel is white
+		if (r >= 255 && g >= 255 && b >= 255){
+			//std::cout << "we may have a white pixel?" << std::endl;
+			strip[i] = 1;
 		} else {
-			strip[i] = 0;//show pixel isn't white
+			strip[i] = 0;
 		}
 		std::cout<<strip[i];
 	}
-	return strip;//return the array of 1's and 0's
+	return strip;
 }
 
 int main(){
@@ -61,9 +62,10 @@ int main(){
 	double vRight = 10.0;//right wheel speed
 	double vMin = 10.0;//min wheel speed
 	double vMax = 20.0;//max wheel speed
-    while(1){
-		takePicture();//get the image from server3
-		int* imageStrip = getImageStrip(cameraView);//create and image strip
+    	while(1){
+		takePicture();
+		int* imageStrip = getImageStrip(cameraView);
+		//bool centered = imageStrip[(int) (cameraView.width / 2.0)] == 1;
 		int dir = whiteDir(imageStrip);
 		if (dir == 0){//make the robot turn left
 			vLeft = vMin;
