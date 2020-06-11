@@ -43,15 +43,14 @@ int* getImageStrip(ImagePPM image){
 		int r = (int) get_pixel(image, row, i, 0);
 		int g = (int) get_pixel(image, row, i, 1);
 		int b = (int) get_pixel(image, row, i, 2);
-		if (r >= 255 && g >= 255 && b >= 255){
-			//std::cout << "we may have a white pixel?" << std::endl;
-			strip[i] = 1;
+		if (r >= 255 && g >= 255 && b >= 255){//is the pixel white?
+			strip[i] = 1;//show pixel is white
 		} else {
-			strip[i] = 0;
+			strip[i] = 0;//show pixel isn't white
 		}
 		std::cout<<strip[i];
 	}
-	return strip;
+	return strip;//return the array of 1's and 0's
 }
 
 int main(){
@@ -62,10 +61,9 @@ int main(){
 	double vRight = 10.0;//right wheel speed
 	double vMin = 10.0;//min wheel speed
 	double vMax = 20.0;//max wheel speed
-    	while(1){
-		takePicture();
-		int* imageStrip = getImageStrip(cameraView);
-		//bool centered = imageStrip[(int) (cameraView.width / 2.0)] == 1;
+    while(1){
+		takePicture();//get the image from server3
+		int* imageStrip = getImageStrip(cameraView);//create and image strip
 		int dir = whiteDir(imageStrip);
 		if (dir == 0){//make the robot turn left
 			vLeft = vMin;
