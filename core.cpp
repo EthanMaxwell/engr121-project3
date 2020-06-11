@@ -1,10 +1,9 @@
-
 #include "robot.hpp"
 
-/*Scans through the previded image strip to find were the center of the white line is
-*It goes through the array and finds were there white line starts and ends
-*It then returns a value based on were abouts it is relitive to the center line
-*-1 for not found, 0 for left, 1 for right, 2 for already centered
+/* Scans through the previded image strip to find were the center of the white line is
+ * It goes through the array and finds were there white line starts and ends
+ * It then returns a value based on were abouts it is relitive to the center line
+ * -1 for not found, 0 for left, 1 for right, 2 for already centered
 */
 int whiteDir(int* imageStrip){
 	int whiteStart = -1;//stores the starting collumn of the white line pixel block
@@ -15,7 +14,9 @@ int whiteDir(int* imageStrip){
 		}
 		else if (whiteStart != -1){//end of the line has been found
 			whiteEnd = i-1;
-			if (((whiteStart + whiteEnd) / 2.0) > (cameraView.width / 2.0 - 2.5) && ((whiteStart + whiteEnd) / 2.0) < (cameraView.width / 2.0 + 2.5)){
+			double lineCol = (whiteStart + whiteEnd) / 2.0;
+			std::cout<<lineCol<<" out of "<<cameraView.width;
+			if (lineCol > (cameraView.width / 2.0 - 10) && lineCol < (cameraView.width / 2.0 + 10)){
 				return 2;//already on course
 			}
 			else if ((whiteStart + whiteEnd) / 2.0 < (cameraView.width / 2.0)){
@@ -29,23 +30,27 @@ int whiteDir(int* imageStrip){
 	return -1;//no white pixels found in the array
 }
 
+/* When given an image it will process it into an array
+ * It takes a strip through the middle of the image
+ * Then returns it as an array of 1 for white pixels
+ * and 0 for a nonwhite pixel
+*/
+
 int* getImageStrip(ImagePPM image){
 	int* strip = new int[image.width];
-	int count = 1;
 	int row = 99; // image.height / 2
-	for (int i = row; i < (image.width * image.height); i+= image.height){
-		int r = (int) get_pixel(image, row, count, 0);
-		int g = (int) get_pixel(image, row, count, 1);
-		int b = (int) get_pixel(image, row, count, 2);
+	for (int i = 0; i < (image.width); i++){
+		int r = (int) get_pixel(image, row, i, 0);
+		int g = (int) get_pixel(image, row, i, 1);
+		int b = (int) get_pixel(image, row, i, 2);
 		if (r >= 255 && g >= 255 && b >= 255){
 			//std::cout << "we may have a white pixel?" << std::endl;
-			strip[count-1] = 1;
+			strip[i] = 1;
 		} else {
-			strip[count-1] = 0;
+			strip[i] = 0;
 		}
-		count++;
+		std::cout<<strip[i];
 	}
-	std::cout << "Count: " << count << std::endl;
 	return strip;
 }
 
@@ -55,8 +60,8 @@ int main(){
 	}
 	double vLeft = 10.0;//left wheel speed
 	double vRight = 10.0;//right wheel speed
-	double vMin = 2.5;//min wheel speed
-	double vMax = 10.0;//max wheel speed
+	double vMin = 10.0;//min wheel speed
+	double vMax = 20.0;//max wheel speed
     	while(1){
 		takePicture();
 		int* imageStrip = getImageStrip(cameraView);
