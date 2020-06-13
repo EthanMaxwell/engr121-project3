@@ -1,8 +1,8 @@
 #include "robot.hpp"
 
-/* Scans through the previded image strip to find were the center of the white line is
+/* Scans through the provided image strip to find were the center of the white line is
  * It goes through the array and finds were there white line starts and ends
- * It then returns a value based on were abouts it is relitive to the center line
+ * It then returns a value based on were abouts it is relative to the center line
  * -1 for not found, 0 for left, 1 for right, 2 for already centered
 */
 int whiteDir(int* imageStrip){
@@ -33,7 +33,7 @@ int whiteDir(int* imageStrip){
 /* When given an image it will process it into an array
  * It takes a strip through the middle of the image
  * Then returns it as an array of 1 for white pixels
- * and 0 for a nonwhite pixel
+ * and 0 for a nonwhite pixels
 */
 
 int* getImageStrip(ImagePPM image){
