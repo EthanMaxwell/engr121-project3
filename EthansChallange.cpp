@@ -18,7 +18,7 @@ int whiteDir(int* imageStrip){
 			whiteEnd = i-1;
 			int lineCol = (int)((whiteStart + whiteEnd) / 2.0);//column number of the line
 			std::cout<<lineCol<<" out of "<<cameraView.width;
-			if(lineCol > 35 && lineCol < 39){//robot is straight enough so can go straight
+			if(lineCol > 36 && lineCol < 38){//robot is straight enough so can go straight
 				return 0;
 			}
 			else if ((whiteStart + whiteEnd) / 2.0 < 37){
@@ -100,11 +100,11 @@ int main(){
 		}
 		else if(dir = -1){//no wall was found
 			noLineCount++;//increase count for amount of frames with no no wall
-			if(noLineCount > 10){//if ten frames without following a wall turn left to try and refind the wall
+			if(noLineCount > 14){//if ___ frames without following a wall turn left to try and refind the wall
 				vLeft = 11.0;
 				vRight = vMax;
 			}
-			else{//if the wall hasn't been lost for ten frames, keep going straight so you don't hit it when robot turns
+			else{//if the wall hasn't been lost for ___ frames, keep going straight so you don't hit it when robot turns
 				vLeft = vMax;
 				vRight = vMax;
 			}
