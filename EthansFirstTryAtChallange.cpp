@@ -16,10 +16,10 @@ int whiteDir(int* imageStrip){
 			whiteEnd = i-1;
 			double lineCol = (whiteStart + whiteEnd) / 2.0;//column number of the line
 			std::cout<<lineCol<<" out of "<<cameraView.width;
-			if(lineCol > 18 && lineCol < 22){
+			if(lineCol > 25 && lineCol < 29){
 				return 0;
 			}
-			else if ((whiteStart + whiteEnd) / 2.0 < 20){
+			else if ((whiteStart + whiteEnd) / 2.0 < 27){
 				return (int)((whiteStart + whiteEnd) / 2.0);//robot must go left
 			}
 			else{
@@ -38,7 +38,8 @@ int whiteDir(int* imageStrip){
 
 int* getImageStrip(ImagePPM image){
 	int* strip = new int[image.height];
-	int row = 70;
+	int row = 80;
+	int gap = 30;
 	for (int i = 0; i < image.height; i++){
 		int red = (int) get_pixel(image, row, i, 0);
 		int green = (int) get_pixel(image, row, i, 1);
@@ -46,9 +47,14 @@ int* getImageStrip(ImagePPM image){
 		if (red >= 255 && green < 250){
 			//std::cout << "we may have a white pixel?" << std::endl;
 			strip[i] = 1;
+			gap = 0;
 		} 
+		if(gap < 30){
+			strip[i] = 1;
+			gap++;
+		}
 		else if(white >= 255){
-			strip[20] = 1;
+			strip[27] = 1;
 		}
 		else {
 			strip[i] = 0;
@@ -76,12 +82,12 @@ int main(){
 		}
 		if (dir > 0 && dir < 30){//make the robot turn left
 			dir = 30 - dir;
-			vLeft = vMax-dir*0.3;
+			vLeft = vMax-dir*0.25;
 			vRight = vMax;
 		} else if (dir >= 30){//make the robot turn right
 			dir = dir-30;
 			vLeft = vMax;
-			vRight = vMax-dir*0.3;	
+			vRight = vMax-dir*0.25;	
 		} else if (dir == 0){//make the robot drive straight
 			vLeft = vMax;
 			vRight = vMax;
