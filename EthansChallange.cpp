@@ -4,7 +4,7 @@
  * It goes through the array and finds where there red wall starts and ends
  * It then returns a number based of the disance from the center of the red wall
  * to were the robot wants to keep the center of the red wall
- * -1 for not found, 0 for straight, 1 to 100 for left, 100+ for right
+ * -1 for not found, 1 to 100 for left, 100+ for right
  * 
 */
 int whiteDir(int* imageStrip){
@@ -18,10 +18,7 @@ int whiteDir(int* imageStrip){
 			whiteEnd = i-1;
 			int lineCol = (int)((whiteStart + whiteEnd) / 2.0);//column number of the line
 			std::cout<<lineCol<<" out of "<<cameraView.width;
-			if(lineCol > 36 && lineCol < 38){//robot is straight enough so can go straight
-				return 0;
-			}
-			else if ((whiteStart + whiteEnd) / 2.0 < 37){
+			if ((whiteStart + whiteEnd) / 2.0 <= 37){
 				return lineCol;//robot must go left
 			}
 			else{
@@ -90,14 +87,12 @@ int main(){
 		if (dir > 0 && dir < 100){//make the robot turn left
 			vLeft = vMax-(35 - dir)*0.25;//turn left based of how far off desired position
 			vRight = vMax;
-		} else if (dir >= 30){//make the robot turn right
+		}
+		else if (dir >= 30){//make the robot turn right
 			dir = dir-100;//remove the 100 that was added to signify a right turn
 			vLeft = vMax;
 			vRight = vMax-dir*0.25;//turn right based of how far off desired position
-		} else if (dir == 0){//make the robot drive straight
-			vLeft = vMax;
-			vRight = vMax;
-		}
+		} 
 		else if(dir = -1){//no wall was found
 			noLineCount++;//increase count for amount of frames with no no wall
 			if(noLineCount > 14){//if ___ frames without following a wall turn left to try and refind the wall
