@@ -64,9 +64,6 @@ int main(){
 		takePicture();
 		int* imageStrip = getImageStrip(cameraView);
 		int dir = whiteDir(imageStrip);
-		if(dir != -1){
-			noLineCount = 0;
-		}
 		if (dir == 0){//make the robot turn left
 			vLeft = vMin;
 			vRight = vMax;
