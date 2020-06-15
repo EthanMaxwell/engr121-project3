@@ -85,7 +85,7 @@ int main(){
 			}
 		}
 		setMotors(vLeft,vRight);
-		
+		delete(imageStrip);//delete the image strip array
 		std::cout<<" vLeft="<<vLeft<<"  vRight="<<vRight<<std::endl;
   } //while
 
