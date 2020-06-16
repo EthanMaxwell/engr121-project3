@@ -2,28 +2,18 @@
 
 /* Scans through the provided image strip to find were the center of the white line is
  * It goes through the array and finds where there red wall starts and ends
- * It then returns a number based of the disance from the center of the red wall
- * to were the robot wants to keep the center of the red wall
- * -1 for not found, 1 to 100 for left, 100+ for right
- * 
+ * It then returns a number of the collumn with were the center of the red wall is
 */
-int whiteDir(int* imageStrip){
-	int whiteStart = -1;//stores the starting column of the white line pixel block
-	int whiteEnd = -1;//stores the starting column of the white line pixel block
-	for (int i = 0; i < cameraView.width*0.75; i++){//cheak through array for white pixels but ingore the last quarter
+double redDir(int* imageStrip){
+	int redStart = -1;//stores the starting column of the red line pixel block
+	int redEnd = -1;//stores the starting column of the red line pixel block
+	for (int i = 0; i < cameraView.width*0.75; i++){//cheak through array for red pixels but ingore the last quarter
 		if (imageStrip[i] == 1 && i != cameraView.width - 1){
-			whiteStart = (whiteStart == -1) ? i : whiteStart;//first time a white pixel is found it must be the start of line
+			redStart = (redStart == -1) ? i : redStart;//first time a red pixel is found it must be the start of line
 		}
-		else if (whiteStart != -1){//end of the line has been found
-			whiteEnd = i-1;
-			int lineCol = (int)((whiteStart + whiteEnd) / 2.0);//column number of the line
-			std::cout<<lineCol<<" out of "<<cameraView.width;
-			if ((whiteStart + whiteEnd) / 2.0 <= 37){
-				return lineCol;//robot must go left
-			}
-			else{
-				return lineCol + 100;//robot must go right, 100 is added to make it as a right turn
-			}
+		else if (redStart != -1){//end of the line has been found
+			redEnd = i-1;
+			return (redStart + redEnd) / 2.0;//robot must go left
 		}
 	}
 	return -1;//no red pixels found in the array
@@ -37,9 +27,8 @@ int whiteDir(int* imageStrip){
  * found with 50 pixels
 */
 
-int* getImageStrip(ImagePPM image){
+int* getImageStrip(ImagePPM image, int row, int gape){
 	int* strip = new int[image.height];
-	int row = 75;//check the 75 row of the image
 	int start = 0;//start of the non red pixels past first block of red
 	for (int i = 0; i < image.height; i++){
 		int red = (int) get_pixel(image, row, i, 0);
@@ -50,13 +39,10 @@ int* getImageStrip(ImagePPM image){
 			strip[i] = 1;
 			start = i;
 		} 
-		else if(white >= 255){//check if there is a white line is there is no red wall
-			strip[37] = 1;//if there is a white line make it just drive straight
-		}
 		else {
 			strip[i] = 0;
 		}
-		if(start + 50 > i){//if there is another red wall less then 50 red pixels after then the first
+		if(start + gape > i){//if there is another red wall less then 50 red pixels after then the first
 			if(red >= 255 && green < 250){
 				for(int j = 0; j < start; j++){
 					strip[j] = 0;//remove the first red line
@@ -72,34 +58,43 @@ int main(){
 	if (initClientRobot() !=0){
 		std::cout<<" Error initializing robot"<<std::endl;
 	}
-	double vLeft = 10.0;//left wheel speed
-	double vRight = 10.0;//right wheel speed
-	double vMin = 10.0;//min wheel speed
-	double vMax = 20.0;//max wheel speed
+	//Constent values used
+	const double vMax = 20.0;//max wheel speed
+	const double turnSpeed = 10;//The speed of inner wheel while truning to fine a wall
+	const double turnMupli = 0.5;//The muliplier for how much to turn per pixel of desired position
+	const double wallDist = 34.0;//The distance the robot left most vision and the wall it's following
+	const int row = 80;//The row of the image that the robot will see
+	const int gape = 20;//The largest possable gap between to red wall for the left wall to be ignored.
+	const int contStrght= 16;//The number of frames the robot contines straight after losing a wall
+	
 	int noLineCount = 0;//amount of frames in a row without a wall
+	
     while(1){
-		takePicture();
-		int* imageStrip = getImageStrip(cameraView);
-		int dir = whiteDir(imageStrip);
-		if(dir != -1){//if robot is follwing a wall rest the time spent not follwing a wall
+		takePicture();//Get the picture
+		double vLeft = vMax;//left wheel speed
+		double vRight = vMax;//right wheel speed
+		int* imageStrip = getImageStrip(cameraView, row, gape);//form the image strip
+		double dir = redDir(imageStrip);//find the dirction to turn the robot
+		if(dir != -1){//if robot is follwing a wall reset the time spent not follwing a wall
 			noLineCount = 0;
 		}
-		if (dir > 0 && dir < 100){//make the robot turn left
-			vLeft = vMax-(35 - dir)*0.25;//turn left based of how far off desired position
+		if (dir > 0 && dir <= wallDist){//make the robot turn left
+			dir = wallDist - dir;
+			vLeft = vMax-dir*turnMupli;//turn left based of how far off desired position
 			vRight = vMax;
 		}
-		else if (dir >= 30){//make the robot turn right
-			dir = dir-100;//remove the 100 that was added to signify a right turn
+		else if (dir > 0){//make the robot turn right
+			dir = dir-wallDist;//remove the value that was added to signify a right turn
 			vLeft = vMax;
-			vRight = vMax-dir*0.25;//turn right based of how far off desired position
-		} 
+			vRight = vMax-dir*turnMupli;//turn right based of how far off desired position
+		}
 		else if(dir = -1){//no wall was found
 			noLineCount++;//increase count for amount of frames with no no wall
-			if(noLineCount > 14){//if ___ frames without following a wall turn left to try and refind the wall
-				vLeft = 11.0;
+			if(noLineCount > contStrght){//if somany frames without following a wall turn left to try and refind the wall
+				vLeft = turnSpeed;
 				vRight = vMax;
 			}
-			else{//if the wall hasn't been lost for ___ frames, keep going straight so you don't hit it when robot turns
+			else{//if the wall hasn't been lost for so many frames, keep going straight so you don't hit it when robot turns
 				vLeft = vMax;
 				vRight = vMax;
 			}
