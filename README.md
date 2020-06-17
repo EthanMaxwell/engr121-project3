@@ -30,6 +30,14 @@ Katuta Mwila - Assistant project manager and assistant coder.
 
 Github: [https://github.com/EthanMaxwell/engr121-project3](https://github.com/EthanMaxwell/engr121-project3)
 
+# Instructions on Installing and geting the Program running:
+1. Install MinGW compiler and SFML from the following link: 
+   https://www.sfml-dev.org/download/sfml/2.5.1/
+      - Make sure the that your MinGW and SMFL are the same version
+
+
+# PLAN
+
 | Objectives | Due date | Item due | Tasks |
 | --- | --- | --- | --- |
 | Start the project | 4 June | Planning of how the project is | Gather as a group to complete AVC planAs a group tests all installations. Help to install SFML on all team computers if they are having problems. Each group member should get started on keeping a log what they are doing (such as getting the program started). This allows us to start the process of tracking how the progress is coming along. |
