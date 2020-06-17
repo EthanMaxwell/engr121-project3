@@ -31,15 +31,31 @@ Katuta Mwila - Assistant project manager and assistant coder.
 Github: [https://github.com/EthanMaxwell/engr121-project3](https://github.com/EthanMaxwell/engr121-project3)
 
 # Instructions on Installing and geting the Program running in Windows:
+
 1. Install MinGW compiler and SFML from the following link: 
    https://www.sfml-dev.org/download/sfml/2.5.1/
       - Make sure the that your MinGW and SMFL are the same version
-         <img width="708" alt="2020-06-12 (2)" src="https://user-images.githubusercontent.com/66412829/84852323-a3610a80-b0b0-11ea-842e-799edee89310.png">
+        <img width="708" alt="2020-06-12 (2)" src="https://user-images.githubusercontent.com/66412829/84852323-a3610a80-b0b0-11ea-842e-799edee89310.png">
       - Download SFML installer --> GCC 7,3,0 MinGW (SEH) - 64-bit
-      - If you don't have MinGW compiler --> MinGW Builds 7.3.0 (64-bit) download it from this website, link is in the orange box
+      - If you don't have MinGW compiler --> MinGW Builds 7.3.0 (64-bit) download it from this website, link is in the orange box   
  2. Save both of them somewhere in you file explorer, it would be easy if you save it in the Window directory.
-      - Create folder SFML and save the installed SFML in there
+      - Create folder SFML and save the installed SFML in there    
  3. Download AVC Win10.zip, extract and save that to a folder
+ 4. Make a makefile for both robot and server and save them in their respective AVC_robot and AVC_server folder
+    <img width="564" alt="2020-06-17 (17)" src="https://user-images.githubusercontent.com/66412829/84867972-12019080-b0d0-11ea-8f78-51461100c416.png">
+      - The above example is for robot, so for server just change everywhere that says "robot" to "server3"
+      - Change the Include and Lib directory to where ever you saved your SMFL. NOTE - if you saved it in window directory under                 folder "SFML" you don't need to change the directory
+      - If you are running C++ in Geany, then go to Build --> Set Build Commands and instead of make enter mingw32-make
+        <img width="362" alt="2020-06-17 (19)" src="https://user-images.githubusercontent.com/66412829/84869282-eed7e080-b0d1-11ea-86ac-f60e05461232.png">    
+ 5. Go to bin folder in the SFML and copy everything in that folder and paste it to both AVC_Robot and AVC_server folder
+ 6. Download the file "**NEED to ADD NAME**" from this GitHub repository and save it in AVC_Robot folder and rename it robot.cpp (if         it wasn't already name that) and replace any file with that name.
+ 7. Now you should be able to run the core program. In Geany: 
+      - Open server3.cpp and its makefile
+      - Open robot.cpp and it's makefile
+       For both these go Build --> Make then execute
+ 8. If you want to change the program to run other program:
+      - AVC_server Folder --> open config.txt --> change where it says "core.txt" to "completion.txt" or "challenge.txt" to run the             other program
+
 
 # PLAN
 
