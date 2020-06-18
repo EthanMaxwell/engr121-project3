@@ -48,7 +48,7 @@ Github: [https://github.com/EthanMaxwell/engr121-project3](https://github.com/Et
       - If you are running C++ in Geany, then go to Build --> Set Build Commands and instead of make enter mingw32-make
         <img width="362" alt="2020-06-17 (19)" src="https://user-images.githubusercontent.com/66412829/84869282-eed7e080-b0d1-11ea-86ac-f60e05461232.png">    
  5. Go to bin folder in the SFML and copy everything in that folder and paste it to both AVC_Robot and AVC_server folder
- 6. Download the file "**robot**" from this GitHub repository and save it in AVC_Robot folder and rename it robot.cpp and replace any file with that name.
+ 6. Download the file "**robot.cpp**" from this GitHub repository and save it in AVC_Robot folder and replace any file with that name.
  7. Now you should be able to run the core program. In Geany: 
       - Open server3.cpp and its makefile
       - Open robot.cpp and it's makefile
