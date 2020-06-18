@@ -41,7 +41,7 @@ Github: [https://github.com/EthanMaxwell/engr121-project3](https://github.com/Et
  2. Save both of them somewhere in you file explorer, it would be easy if you save it in the Window directory.
       - Create folder SFML and save the installed SFML in there    
  3. Download AVC Win10.zip, extract and save that to a folder
- 4. Make a makefile for both robot and server and save them in their respective AVC_robot and AVC_server folder
+ 4. Edit the makefile that is in AVC_robot and AVC_server.
     <img width="564" alt="2020-06-17 (17)" src="https://user-images.githubusercontent.com/66412829/84867972-12019080-b0d0-11ea-8f78-51461100c416.png">
       - The above example is for robot, so for server just change everywhere that says "robot" to "server3"
       - Change the Include and Lib directory to where ever you saved your SMFL. NOTE - if you saved it in window directory under                 folder "SFML" you don't need to change the directory
