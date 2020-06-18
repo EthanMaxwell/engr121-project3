@@ -36,7 +36,7 @@ Github: [https://github.com/EthanMaxwell/engr121-project3](https://github.com/Et
    https://www.sfml-dev.org/download/sfml/2.5.1/
       - Make sure the that your MinGW and SMFL are the same version
         <img width="708" alt="2020-06-12 (2)" src="https://user-images.githubusercontent.com/66412829/84852323-a3610a80-b0b0-11ea-842e-799edee89310.png">
-      - Download SFML installer --> GCC 7,3,0 MinGW (SEH) - 64-bit
+      - Download SFML installer --> GCC 7.3.0 MinGW (SEH) - 64-bit
       - If you don't have MinGW compiler --> MinGW Builds 7.3.0 (64-bit) download it from this website, link is in the orange box   
  2. Save both of them somewhere in you file explorer, it would be easy if you save it in the Window directory.
       - Create folder SFML and save the installed SFML in there    
