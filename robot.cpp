@@ -19,7 +19,7 @@ double findLine(int* imageStrip, double camView){
 				return i;//If looking for red return coloumn of the end of the red
 			}
 			else{
-				return (redStart + i) / 2.0;//If not looking for red return the average colloumn
+				return (lineStart + i) / 2.0;//If not looking for red return the average colloumn
 			}
 		}
 	}
