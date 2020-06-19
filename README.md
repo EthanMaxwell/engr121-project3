@@ -4,9 +4,15 @@ This is assuming you have MinGW previously installed. If you don&#39;t have [Min
 1. Download SFML from the following link
    https://www.sfml-dev.org/download/sfml/2.5.1/
       - Download the SMFL for the version of MinGW that you have.
-      - If you are unsure just click to download --> GCC 7.3.0 MinGW (DW2) - 32-bit as that's the most likely version for you to have, but you might need the 64 bit MinGW version.
+      - How to check MinGW version
+            - Go to powershell
+            - in the commandline type "g++ --version"
+      - If your MinGW compiler version is same as one of the SFML in the website download that SFML installer.
+      
         <img width="708" alt="2020-06-12 (2)" src="https://user-images.githubusercontent.com/66412829/84852323-a3610a80-b0b0-11ea-842e-799edee89310.png">
-      - If you don't have MinGW compiler --> MinGW Builds 7.3.0 (64-bit) download it from this website, link is in the orange box. You will need to set up MinGW first.
+      - If you don't have the correct version or don't have MinGW compiler --> MinGW Builds 7.3.0 (64-bit) download it from this website, link is in the orange box. You will need to set up MinGW first.
+ **2.1. Setting up MinGW Compiler**
+ 
  2. Save your SMFL folder.
       - After you have downloaded it you will need to extract it, to do this you can right click the downloaded zip folder and select "extract all" and pick where you want to save the SFML folder.
       - Pick somewhere in your file explorer where you can find it again.
