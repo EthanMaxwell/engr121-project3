@@ -29,9 +29,14 @@ This is assuming you have MinGW previously installed. If you don&#39;t have [Min
  2. Save your SMFL folder.
       - After you have downloaded it you will need to extract it, to do this you can right click the downloaded zip folder and select "extract all" and pick where you want to save the SFML folder.
       - Pick somewhere in your file explorer where you can find it again.
- 3. Download AVC_Win10.zip, extract and save that to a folder.
-      - You can easily download it by [clicking this link](https://ecs.wgtn.ac.nz/foswiki/pub/Courses/ENGR101_2020T1/Project3/AVC_Win10.zip).
-      - To extract it you can right click the downloaded zip folder and select "extract all" and pick where you want the AVC_Win10 folder to be saved.
+ 3. There are 2 option you can follow either: 
+         Download AVC_Win10.zip, extract and save that to a folder.
+               - You can easily download it by [clicking this link] (https://ecs.wgtn.ac.nz/foswiki/pub/Courses/ENGR101_2020T1/Project3/AVC_Win10.zip).
+               - To extract it you can right click the downloaded zip folder and select "extract all" and pick where you want the                        AVC_Win10 folder to be saved.
+   OR
+         If you choose the following option skip Step 5
+         Download the zip file "       " from this GitHub repository 
+               - Extract and save the folder in your computer 
  4. Edit the makefile that is in "AVC_robot" and "AVC_server" folders.
       - To do this first open up the file "makefile" in the "AVC_server" folder in the "AVC_Win10" folder that you previously downloaded and extracted. You can do this using Geany (right click file and choose "Open with Geany").
       - The first line of the file should be "DIR = C:\\\SFML", we need to replace "C:\\\SFML" with where your SFML folder is.
