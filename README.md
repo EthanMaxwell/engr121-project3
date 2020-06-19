@@ -5,6 +5,7 @@ This is assuming you have MinGW previously installed. If you don&#39;t have [Min
    https://www.sfml-dev.org/download/sfml/2.5.1/
       - Download the SMFL for the version of MinGW that you have.
       - How to check MinGW version
+      
             - Go to powershell
             - in the commandline type "g++ --version"
       - If your MinGW compiler version is same as one of the SFML version in the website download that SFML installer.
@@ -31,13 +32,15 @@ This is assuming you have MinGW previously installed. If you don&#39;t have [Min
       - Pick somewhere in your file explorer where you can find it again.
  3. There are 2 option you can follow either:
       - Download AVC_Win10.zip, extract and save that to a folder.
+      
             - You can easily download it by [clicking this link]   (https://ecs.wgtn.ac.nz/foswiki/pub/Courses/ENGR101_2020T1/Project3/AVC_Win10.zip).
             - To extract it you can right click the downloaded zip folder and select "extract all" and pick where you want the                        AVC_Win10 folder to be saved.
   
   OR
   
    If you choose the following option skip Step 4.
-      - Download the zip file "       " from this GitHub repository. 
+   
+      - Download the zip file **AVC_Win10.zip** folder from this GitHub repository. 
       - Extract and save the folder in your computer. 
       
  4. Setup "**robot.cpp**" from this GitHub repository.
