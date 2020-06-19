@@ -13,6 +13,14 @@ This is assuming you have MinGW previously installed. If you don&#39;t have [Min
       - If you don't have the correct version or don't have MinGW compiler --> MinGW Builds 7.3.0 (64-bit) download it from this website, link is in the orange box. You will need to set up MinGW first.
       
  **2.1. Setting up MinGW Compiler**
+ 
+      - Extract the MinGW compiler and save it in your computer
+      - In the MinGW find the bin folder and copy the directory of it
+      - Then in your computer go to system --> Advanced system settings --> Environment variables --> Under system variable select Path         and click Edit --> New --> paste your copied directory of the path to bin folder in MinGW into it.
+      - Check if the MinGW compiler is installed:
+            - Open Window Powershell --> type in g++ --> if you see message "fatal error: no input files" then you are good.
+      - Now you should be able to run C++ language in any platform that accomodate it
+      - Now you can go ahead and download the same version of SFML.
       
  2. Save your SMFL folder.
       - After you have downloaded it you will need to extract it, to do this you can right click the downloaded zip folder and select "extract all" and pick where you want to save the SFML folder.
