@@ -30,25 +30,29 @@ This is assuming you have MinGW previously installed. If you don&#39;t have [Min
       - After you have downloaded it you will need to extract it, to do this you can right click the downloaded zip folder and select "extract all" and pick where you want to save the SFML folder.
       - Pick somewhere in your file explorer where you can find it again.
  3. There are 2 option you can follow either:
-         - Download AVC_Win10.zip, extract and save that to a folder.
-               - You can easily download it by [clicking this link]   (https://ecs.wgtn.ac.nz/foswiki/pub/Courses/ENGR101_2020T1/Project3/AVC_Win10.zip).
-               - To extract it you can right click the downloaded zip folder and select "extract all" and pick where you want the                        AVC_Win10 folder to be saved.
-   OR
-   If you choose the following option skip Step 5.
-         - Download the zip file "       " from this GitHub repository. 
-               - Extract and save the folder in your computer. 
-               
- 4. Edit the makefile that is in "AVC_robot" and "AVC_server" folders.
+      - Download AVC_Win10.zip, extract and save that to a folder.
+            - You can easily download it by [clicking this link]   (https://ecs.wgtn.ac.nz/foswiki/pub/Courses/ENGR101_2020T1/Project3/AVC_Win10.zip).
+            - To extract it you can right click the downloaded zip folder and select "extract all" and pick where you want the                        AVC_Win10 folder to be saved.
+  
+  OR
+  
+   If you choose the following option skip Step 4.
+      - Download the zip file "       " from this GitHub repository. 
+      - Extract and save the folder in your computer. 
+      
+ 4. Setup "**robot.cpp**" from this GitHub repository.
+      - Select "robot.cpp" from this GitHub repository (it's probably just above this) and select it so you are looking at the code.
+      - Select ALL the code for "robot.cpp" and nothing more, then copy it.
+      - With Geany open "robot.cpp" in the "AVC_robot" folder and delete all the code there so you can paste in the code you just copied.
+      
+ 5. Edit the makefile that is in "AVC_robot" and "AVC_server" folders.
       - To do this first open up the file "makefile" in the "AVC_server" folder in the "AVC_Win10" folder that you previously downloaded and extracted. You can do this using Geany (right click file and choose "Open with Geany").
       - The first line of the file should be "DIR = C:\\\SFML", we need to replace "C:\\\SFML" with where your SFML folder is.
       - To do this you need to find where you saved your SFML folder in file explorer and open that folder. Make sure the folders in the folder you're in are "bin", "doc", "examples" and so on, otherwise your not in the correct location.  
       - Then right click on the file address along the top (it should be something like "> This PC > Windows(C:) > SFML", but can vary greatly depending on where you saved your SFML folder) and select "Copy address".
       - Paste your newly copied address in to replace "C:\\\SFML" in the first line of the "makefile" you opened and save it.
       - Within the "AVC_robot" folder also within the "AVC_Win10" folder you will find another file called "makefile". Open this file as well and paste the file address of your SFML folder over "C:\\\SFML" as well, just like you just did for the first "makefile".
-  5. Setup "**robot.cpp**" from this GitHub repository.
-      - Select "robot.cpp" from this GitHub repository (it's probably just above this) and select it so you are looking at the code.
-      - Select ALL the code for "robot.cpp" and nothing more, then copy it.
-      - With Geany open "robot.cpp" in the "AVC_robot" folder and delete all the code there so you can paste in the code you just copied.
+ 
  6. Now you need to make the executable files for the robot and server3
       - To do this first open "server3.cpp" in the "AVC_server" folder using Geany.
       - Add a space anywhere in the document (such as the end of the first line) and then delete the space you just added (this marks the file as changed so you can remake it).
