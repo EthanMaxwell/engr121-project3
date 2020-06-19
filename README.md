@@ -14,10 +14,13 @@ This is assuming you have MinGW previously installed. If you don&#39;t have [Min
       
 **Setting up MinGW Compiler**
 
-      - Extract the MinGW compiler and save it in your computer
-      - In the MinGW find the bin folder and copy the directory of it
+      - Extract the MinGW compiler and save it in computer
+      - If you have trouble extracting it:
+            - Download BreeZip from your Microsoft Store.
+            - Open the installed MinGW compiler folder in BreeZip adn extract it
+      - In the MinGW find the bin folder and copy the path of that directory
       - Then in your computer go to system --> Advanced system settings --> Environment variables --> Under system variable select Path
-        and click Edit --> New --> paste your copied directory of the path to bin folder in MinGW into it.
+        and click Edit --> New --> paste your copied directory of the path of bin folder in MinGW into it.
       - Check if the MinGW compiler is installed:
             - Open Window Powershell --> type in g++ --> if you see message "fatal error: no input files" then you are good.
       - Now you should be able to run C++ language in any platform that accomodate it
