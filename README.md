@@ -12,11 +12,12 @@ This is assuming you have MinGW previously installed. If you don&#39;t have [Min
         <img width="708" alt="2020-06-12 (2)" src="https://user-images.githubusercontent.com/66412829/84852323-a3610a80-b0b0-11ea-842e-799edee89310.png">
       - If you don't have the correct version or don't have MinGW compiler --> MinGW Builds 7.3.0 (64-bit) download it from this website, link is in the orange box. You will need to set up MinGW first.
       
- **2.1. Setting up MinGW Compiler**
- 
+**Setting up MinGW Compiler**
+
       - Extract the MinGW compiler and save it in your computer
       - In the MinGW find the bin folder and copy the directory of it
-      - Then in your computer go to system --> Advanced system settings --> Environment variables --> Under system variable select Path         and click Edit --> New --> paste your copied directory of the path to bin folder in MinGW into it.
+      - Then in your computer go to system --> Advanced system settings --> Environment variables --> Under system variable select Path
+        and click Edit --> New --> paste your copied directory of the path to bin folder in MinGW into it.
       - Check if the MinGW compiler is installed:
             - Open Window Powershell --> type in g++ --> if you see message "fatal error: no input files" then you are good.
       - Now you should be able to run C++ language in any platform that accomodate it
