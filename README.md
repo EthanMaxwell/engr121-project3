@@ -36,12 +36,11 @@ This is assuming you have MinGW previously installed. If you don&#39;t have [Min
             - You can easily download it by [clicking this link]   (https://ecs.wgtn.ac.nz/foswiki/pub/Courses/ENGR101_2020T1/Project3/AVC_Win10.zip).
             - To extract it you can right click the downloaded zip folder and select "extract all" and pick where you want the                        AVC_Win10 folder to be saved.
   
-  OR
+  OR  
   
-   If you choose the following option skip Step 4.
-   
-      - Download the zip file **AVC_Win10.zip** folder from this GitHub repository. 
-      - Extract and save the folder in your computer. 
+      - If you choose the following option skip Step 4.
+           - Download the zip file **AVC_Win10.zip** folder from this GitHub repository. 
+           - Extract and save the folder in your computer. 
       
  4. Setup "**robot.cpp**" from this GitHub repository.
       - Select "robot.cpp" from this GitHub repository (it's probably just above this) and select it so you are looking at the code.
