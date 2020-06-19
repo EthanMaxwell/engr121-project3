@@ -40,6 +40,8 @@ You will need the program Geany installed. If you don't have Geany installed you
      
  OR
  
+ Option 2:
+ 
    - Setup "**robot.cpp**" from this GitHub repository with the standard AVC_Win10 folder
    - You can easily download the standard AVC_Wind10 by [clicking this link](https://ecs.wgtn.ac.nz/foswiki/pub/Courses/ENGR101_2020T1/Project3/AVC_Win10.zip).
    - Extract all of the files from the zip
